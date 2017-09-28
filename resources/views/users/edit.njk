@@ -1,0 +1,53 @@
+{% extends 'master' %}
+
+{% block content %}
+  {% if old('errors') %}
+    <div class="alert alert-danger">
+      {% for error in old('errors') %}
+        <li> {{ error.message }} </li>
+      {% endfor %}
+    </div>
+  {% endif %}
+  {{ form.open({action: 'UserController.update', params: {id: user.id} }) }}
+
+    {{ csrfField }}
+    <fieldset class="form-group">
+      {{ form.label('Username') }}
+      {{ form.text('username', user.username, { class: 'form-control' }) }}
+    </fieldset>
+
+    <fieldset class="form-group">
+      {{ form.label('Email') }}
+      {{ form.text('email', user.email, { class: 'form-control' }) }}
+    </fieldset>
+
+    <fieldset class="form-group">
+      {{ form.label('Name') }}
+      {{ form.text('profile[name]', user.profile.name, { class: 'form-control' }) }}
+    </fieldset>
+
+    <fieldset class="form-group">
+      {{ form.label('Number Phone') }}
+      {{ form.text('profile[number_phone]', user.profile.number_phone, { class: 'form-control' }) }}
+    </fieldset>
+
+    <fieldset class="form-group">
+      {{ form.label('Age') }}
+      {{ form.text('profile[age]', user.profile.age, { class: 'form-control' }) }}
+    </fieldset>
+
+    <fieldset class="form-group">
+      {{ form.label('Address') }}
+      {{ form.textarea('profile[address]', user.profile.address, { class: 'form-control' }) }}
+    </fieldset>
+
+    <fieldset class="form-group">
+      {{ form.label('Gender') }}
+      {{ form.text('profile[gender]', user.profile.gender, { class: 'form-control' }) }}
+    </fieldset>
+
+
+    {{ form.submit('Publish', 'publish', { class: 'btn btn-primary btn-block' }) }}
+
+  {{ form.close() }}
+{% endblock %}

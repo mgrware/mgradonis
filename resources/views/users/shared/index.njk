@@ -1,0 +1,20 @@
+<table class="table table-bordered">
+  <tr>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Action</th>  
+  </tr>  
+  {% for user in users %}
+    <tr>
+      <td>
+        {{ user.username }}
+      </td>
+      <td>
+        {{ user.email }}
+      </td>
+      <td>
+        {{ linkTo('user.edit', 'View All Users', {id: user.id}) }}
+      </td>
+    </tr>
+  {% endfor %}
+</table>

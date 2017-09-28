@@ -1,0 +1,18 @@
+{% extends '../master' %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-4">  
+      <a class="btn btn-default" href="/user/create">create</a>
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-md-12 padding">
+      <div class="panel panel-default">
+        <div class="panel-heading">User</div>
+        <div class="panel-body">
+          {% include 'users/shared/index' %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
